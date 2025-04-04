@@ -1,3 +1,4 @@
+import { Tag } from "@/components/tag";
 import { Button } from "@/components/ui/button";
 import {
   Card,
@@ -15,43 +16,42 @@ const services = [
     title: "Contrôle de fonctionnement",
     description:
       "Vérification complète du système pour assurer un fonctionnement optimal.",
-    image: "/placeholder.svg?height=200&width=300",
+    icon: CheckCircle,
   },
   {
-    title: "Nettoyage",
+    title: "Nettoyage Professionnel",
     description:
-      "Nettoyage professionnel de votre hammam pour une hygiène parfaite.",
-    image: "/placeholder.svg?height=200&width=300",
+      "Nettoyage professionnel pour maintenir l'hygiène de votre hammam.",
+    icon: CheckCircle,
   },
   {
-    title: "Entretien régulier",
-    description: "Maintenance périodique pour prévenir les problèmes.",
-    image: "/placeholder.svg?height=200&width=300",
+    title: "Entretien Régulier",
+    description: "Maintenance périodique pour prévenir tout dysfonctionnement.",
+    icon: CheckCircle,
   },
   {
     title: "Détartrage",
-    description:
-      "Nettoyage des résistances et conduits avec un produit adapté.",
-    image: "/placeholder.svg?height=200&width=300",
+    description: "Nettoyage et détartrage des surfaces et conduits.",
+    icon: CheckCircle,
   },
   {
     title: "Vérification des filtres et électrovannes",
-    description: "Nettoyage ou remplacement si nécessaire.",
-    image: "/placeholder.svg?height=200&width=300",
+    description:
+      "Test et nettoyage (ou remplacement) des filtres et électrovannes.",
+    icon: CheckCircle,
   },
   {
     title: "Contrôle des équipements",
-    description:
-      "Vérification de l'éclairage, des portes, joints et buses de diffusion.",
-    image: "/placeholder.svg?height=200&width=300",
+    description: "Inspection des équipements pour une performance optimale.",
+    icon: CheckCircle,
   },
 ];
 
 const maintenanceServices = [
-  "Nettoyage approfondi avec un produit spécifique anti-moisissures",
-  "Vérification des systèmes électriques et de la ventilation",
-  "Test du bon fonctionnement des commandes et de la température",
-  "Inspection complète du générateur de vapeur",
+  "Nettoyage approfondi avec un produit spécifique",
+  "Vérification des systèmes électriques et de chauffage",
+  "Test du bon fonctionnement des commandes",
+  "Inspection complète des conduits et générateurs",
   "Vérification des circuits d'eau et de vapeur",
   "Remplacement des pièces usées si nécessaire",
 ];
@@ -61,8 +61,8 @@ export default function HammamPage() {
     <div>
       {/* Hero Section */}
       <section className="relative bg-gradient-to-r from-blue-600 to-cyan-500 py-20 text-white">
-        <div className="container relative z-10">
-          <div className="max-w-3xl">
+        <div className="container relative z-10 flex flex-col md:flex-row items-center">
+          <div className="max-w-3xl md:w-1/2">
             <h1 className="text-4xl font-bold tracking-tight mb-4 md:text-5xl">
               Services Hammam Professionnels
             </h1>
@@ -79,6 +79,15 @@ export default function HammamPage() {
               <Link href="/contact">Demander un devis</Link>
             </Button>
           </div>
+          <div className="md:w-1/2 mt-8 md:mt-0 flex justify-center">
+            <Image
+              src="/hammam/hammam.png"
+              alt="Service Hammam"
+              width={500}
+              height={400}
+              className="object-cover rounded-lg"
+            />
+          </div>
         </div>
         <div className="absolute inset-0 bg-blue-900/20 mix-blend-multiply" />
       </section>
@@ -86,28 +95,23 @@ export default function HammamPage() {
       {/* Services Overview */}
       <section className="py-16">
         <div className="container">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold tracking-tight mb-4">
-              Nos services hammam
-            </h2>
-            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+          <div className="text-start gap-4 flex flex-col justify-start mb-12">
+            <Tag picto="♨️" title="Nos services hammam" />
+            <p className="text-base text-gray-500 font-light max-w-2xl">
               Découvrez notre gamme complète de services pour l'entretien et le
               contrôle de votre hammam.
             </p>
           </div>
-          <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+          <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
             {services.map((service) => (
-              <Card key={service.title}>
-                <div className="relative h-48">
-                  <Image
-                    src={service.image || "/placeholder.svg"}
-                    alt={service.title}
-                    fill
-                    className="object-cover rounded-t-lg"
-                  />
+              <Card key={service.title} className="p-4 flex flex-col gap-4">
+                <div className="flex items-center justify-start">
+                  <service.icon className="h-8 w-8 text-blue-300" />
                 </div>
-                <CardHeader>
-                  <CardTitle>{service.title}</CardTitle>
+                <CardHeader className="p-0">
+                  <CardTitle className="text-xl font-medium text-blue-950">
+                    {service.title}
+                  </CardTitle>
                   <CardDescription>{service.description}</CardDescription>
                 </CardHeader>
               </Card>
@@ -120,16 +124,14 @@ export default function HammamPage() {
       <section className="py-16 bg-blue-50">
         <div className="container">
           <div className="grid gap-8 md:grid-cols-2 items-center">
-            <div>
-              <h2 className="text-3xl font-bold tracking-tight mb-4">
-                Entretien professionnel
-              </h2>
-              <p className="text-lg text-muted-foreground mb-6">
-                Nous proposons des services d'entretien hebdomadaire, mensuel et
-                annuel pour garantir la longévité et le bon fonctionnement de
-                votre hammam.
+            <div className="flex flex-col gap-8">
+              <Tag picto="🛠️" title="Services de maintenance" />
+              <p className="text-base text-gray-500 font-light">
+                Nos services de maintenance assurent la longévité et la
+                performance de votre hammam. Nous proposons des interventions
+                ponctuelles ou régulières en fonction de vos besoins.
               </p>
-              <div className="grid grid-cols-1 gap-4">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 {maintenanceServices.map((service, index) => (
                   <div key={index} className="flex items-start gap-3">
                     <CheckCircle className="h-5 w-5 text-blue-600 flex-shrink-0 mt-0.5" />
@@ -137,14 +139,14 @@ export default function HammamPage() {
                   </div>
                 ))}
               </div>
-              <Button asChild className="mt-8">
+              <Button asChild className="w-fit">
                 <Link href="/contact">Demander un devis</Link>
               </Button>
             </div>
             <div className="relative h-[400px] rounded-lg overflow-hidden">
               <Image
-                src="/placeholder.svg?height=400&width=600"
-                alt="Entretien hammam"
+                src="/hammam/hammam-repair.png"
+                alt="Maintenance Hammam"
                 fill
                 className="object-cover"
               />
@@ -153,37 +155,43 @@ export default function HammamPage() {
         </div>
       </section>
 
-      {/* Maintenance Plans */}
+      {/* Maintenance Contracts */}
       <section className="py-16">
         <div className="container">
           <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold tracking-tight mb-4">
-              Formules d'entretien
-            </h2>
-            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-              Choisissez la formule d'entretien qui correspond le mieux à vos
-              besoins.
+            <Tag
+              picto="📝"
+              title="Contrats d'entretien annuels"
+              className="mx-auto mb-4"
+            />
+            <p className="text-base text-gray-500 font-light max-w-2xl mx-auto">
+              Optez pour un contrat d'entretien annuel pour garder votre hammam
+              en parfait état toute l'année.
             </p>
           </div>
           <div className="grid gap-8 md:grid-cols-3">
             <Card className="text-center">
               <CardHeader>
-                <CardTitle>Entretien Mensuel</CardTitle>
-                <CardDescription>Pour un usage régulier</CardDescription>
+                <CardTitle>Formule Essentielle</CardTitle>
+                <CardDescription>Pour un usage occasionnel</CardDescription>
               </CardHeader>
               <CardContent>
                 <ul className="space-y-2 text-left mb-6">
                   <li className="flex items-start gap-3">
                     <CheckCircle className="h-5 w-5 text-blue-600 flex-shrink-0 mt-0.5" />
-                    <span>Nettoyage approfondi</span>
+                    <span>2 visites par an</span>
                   </li>
                   <li className="flex items-start gap-3">
                     <CheckCircle className="h-5 w-5 text-blue-600 flex-shrink-0 mt-0.5" />
-                    <span>Vérification des systèmes</span>
+                    <span>Nettoyage complet</span>
                   </li>
                   <li className="flex items-start gap-3">
                     <CheckCircle className="h-5 w-5 text-blue-600 flex-shrink-0 mt-0.5" />
-                    <span>Test de fonctionnement</span>
+                    <span>Inspection des systèmes</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <CheckCircle className="h-5 w-5 text-blue-600 flex-shrink-0 mt-0.5" />
+                    <span>Remplacement des pièces usées</span>
                   </li>
                 </ul>
                 <Button asChild className="w-full">
@@ -193,26 +201,26 @@ export default function HammamPage() {
             </Card>
             <Card className="text-center border-blue-600 shadow-lg">
               <CardHeader>
-                <CardTitle>Entretien Trimestriel</CardTitle>
-                <CardDescription>Pour un usage modéré</CardDescription>
+                <CardTitle>Formule Confort</CardTitle>
+                <CardDescription>Pour un usage régulier</CardDescription>
               </CardHeader>
               <CardContent>
                 <ul className="space-y-2 text-left mb-6">
                   <li className="flex items-start gap-3">
                     <CheckCircle className="h-5 w-5 text-blue-600 flex-shrink-0 mt-0.5" />
-                    <span>Nettoyage approfondi</span>
+                    <span>4 visites par an</span>
                   </li>
                   <li className="flex items-start gap-3">
                     <CheckCircle className="h-5 w-5 text-blue-600 flex-shrink-0 mt-0.5" />
-                    <span>Vérification des systèmes</span>
+                    <span>Nettoyage complet</span>
                   </li>
                   <li className="flex items-start gap-3">
                     <CheckCircle className="h-5 w-5 text-blue-600 flex-shrink-0 mt-0.5" />
-                    <span>Test de fonctionnement</span>
+                    <span>Inspection en profondeur</span>
                   </li>
                   <li className="flex items-start gap-3">
                     <CheckCircle className="h-5 w-5 text-blue-600 flex-shrink-0 mt-0.5" />
-                    <span>Détartrage</span>
+                    <span>Détartrage complet</span>
                   </li>
                 </ul>
                 <Button asChild className="w-full">
@@ -222,30 +230,30 @@ export default function HammamPage() {
             </Card>
             <Card className="text-center">
               <CardHeader>
-                <CardTitle>Entretien Annuel</CardTitle>
-                <CardDescription>Pour un usage occasionnel</CardDescription>
+                <CardTitle>Formule Premium</CardTitle>
+                <CardDescription>Pour un usage intensif</CardDescription>
               </CardHeader>
               <CardContent>
                 <ul className="space-y-2 text-left mb-6">
                   <li className="flex items-start gap-3">
                     <CheckCircle className="h-5 w-5 text-blue-600 flex-shrink-0 mt-0.5" />
-                    <span>Nettoyage approfondi</span>
+                    <span>6 visites par an</span>
                   </li>
                   <li className="flex items-start gap-3">
                     <CheckCircle className="h-5 w-5 text-blue-600 flex-shrink-0 mt-0.5" />
-                    <span>Vérification complète</span>
+                    <span>Nettoyage complet</span>
                   </li>
                   <li className="flex items-start gap-3">
                     <CheckCircle className="h-5 w-5 text-blue-600 flex-shrink-0 mt-0.5" />
-                    <span>Détartrage</span>
+                    <span>Inspection approfondie</span>
                   </li>
                   <li className="flex items-start gap-3">
                     <CheckCircle className="h-5 w-5 text-blue-600 flex-shrink-0 mt-0.5" />
-                    <span>Inspection du générateur</span>
+                    <span>Contrôle complet des équipements</span>
                   </li>
                   <li className="flex items-start gap-3">
                     <CheckCircle className="h-5 w-5 text-blue-600 flex-shrink-0 mt-0.5" />
-                    <span>Remplacement des pièces usées</span>
+                    <span>Assistance prioritaire</span>
                   </li>
                 </ul>
                 <Button asChild className="w-full">

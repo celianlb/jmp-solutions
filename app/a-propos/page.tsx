@@ -86,12 +86,12 @@ export default function AboutPage() {
       <section className="py-16">
         <div className="container">
           <div className="grid gap-12 md:grid-cols-2 items-center">
-            <div className="relative h-[400px] rounded-lg overflow-hidden">
+            <div className="relative rounded-lg overflow-hidden">
               <Image
-                src="/placeholder.svg?height=400&width=600"
+                src="/jmp-logo.png"
                 alt="L'équipe JMP Solutions"
-                fill
-                className="object-cover"
+                width={816}
+                height={730}
               />
             </div>
             <div>
@@ -168,7 +168,7 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* Team Section */}
+      {/* Team Section 
       <section className="py-16">
         <div className="container">
           <div className="text-center mb-12">
@@ -200,7 +200,7 @@ export default function AboutPage() {
             ))}
           </div>
         </div>
-      </section>
+      </section>*/}
 
       {/* CTA Section */}
       <section className="py-16 bg-gradient-to-r from-blue-600 to-cyan-500 text-white">

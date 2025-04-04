@@ -1,3 +1,4 @@
+import { Tag } from "@/components/tag";
 import { Button } from "@/components/ui/button";
 import {
   Card,
@@ -102,7 +103,7 @@ export default function PiscinePage() {
           </div>
           <div className="md:w-1/2 mt-8 md:mt-0 flex justify-center">
             <Image
-              src="/piscine/piscine-cleaning.jpg"
+              src="/piscine/piscine.jpg"
               alt="Service Pisciniste"
               width={500}
               height={400}
@@ -116,11 +117,9 @@ export default function PiscinePage() {
       {/* Services Overview */}
       <section className="py-16">
         <div className="container">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold tracking-tight mb-4">
-              Nos services piscine
-            </h2>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+          <div className="text-start gap-4 flex flex-col justify-start mb-12">
+            <Tag picto="🏊‍♂️" title="Nos services piscine"></Tag>
+            <p className="text-base text-gray-500 font-light  max-w-2xl">
               Découvrez notre gamme complète de services pour l'entretien, la
               réparation et l'installation de votre piscine.
             </p>
@@ -132,7 +131,9 @@ export default function PiscinePage() {
                   <service.icon className="h-8 w-8 text-blue-300" />
                 </div>
                 <CardHeader className="p-0">
-                  <CardTitle className="text-xl">{service.title}</CardTitle>
+                  <CardTitle className="text-xl font-medium text-blue-950">
+                    {service.title}
+                  </CardTitle>
                   <CardDescription>{service.description}</CardDescription>
                 </CardHeader>
               </Card>
@@ -145,11 +146,12 @@ export default function PiscinePage() {
       <section className="py-16 bg-blue-50">
         <div className="container">
           <div className="grid gap-8 md:grid-cols-2 items-center">
-            <div>
-              <h2 className="text-3xl font-bold tracking-tight mb-4">
-                Services d'installation et de remplacement
-              </h2>
-              <p className="text-lg text-muted-foreground mb-6">
+            <div className="flex flex-col gap-8">
+              <Tag
+                picto="🛠️"
+                title="Services d'installation et de remplacement"
+              ></Tag>
+              <p className="text-base text-gray-500 font-light">
                 Nous proposons une gamme complète de services d'installation et
                 de remplacement pour tous les équipements de votre piscine.
               </p>
@@ -161,13 +163,13 @@ export default function PiscinePage() {
                   </div>
                 ))}
               </div>
-              <Button asChild className="mt-8">
+              <Button asChild className="w-fit">
                 <Link href="/contact">Demander un devis</Link>
               </Button>
             </div>
             <div className="relative h-[400px] rounded-lg overflow-hidden">
               <Image
-                src="/piscine/closed.jpg"
+                src="/piscine/piscine-cleaning.jpg"
                 alt="Installation piscine"
                 fill
                 className="object-cover"
@@ -181,10 +183,12 @@ export default function PiscinePage() {
       <section className="py-16">
         <div className="container">
           <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold tracking-tight mb-4">
-              Contrats d'entretien annuels
-            </h2>
-            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+            <Tag
+              picto="📝"
+              title="Contrats d'entretien annuels"
+              className="mx-auto mb-4"
+            />
+            <p className="text-base text-gray-500 font-light max-w-2xl mx-auto">
               Optez pour un contrat d'entretien annuel pour garder votre piscine
               en parfait état toute l'année.
             </p>

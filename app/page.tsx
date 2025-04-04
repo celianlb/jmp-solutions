@@ -81,7 +81,7 @@ export default function Home() {
                   asChild
                   variant="outline"
                   size="lg"
-                  className="border-white text-white hover:bg-white/10"
+                  className="border-white bg-transparent text-white hover:bg-white/10 hover:text-white"
                 >
                   <Link href="/services/piscine">Nos services</Link>
                 </Button>

@@ -22,7 +22,7 @@ export const authOptions: NextAuthOptions = {
   },
   pages: {
     signIn: "/admin/login",
-    error: "/admin/login", // Ajout d'une page d'erreur
+    error: "/admin/login",
   },
   providers: [
     CredentialsProvider({

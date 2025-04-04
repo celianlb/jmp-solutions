@@ -285,7 +285,7 @@ export default function ContactPage() {
                         <Textarea
                           id="message"
                           name="message"
-                          placeholder="Décrivez votre demande..."
+                          placeholder="Bonjour, je souhaite un devis pour..."
                           rows={5}
                           value={formData.message}
                           onChange={handleChange}

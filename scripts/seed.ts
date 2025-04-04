@@ -7,10 +7,10 @@ async function main() {
   // Créer un utilisateur admin
   const adminPassword = await hash("admin123", 10);
   const admin = await prisma.user.upsert({
-    where: { email: "admin@jmpsolutions.fr" },
+    where: { email: "celianlebacle06@gmail.com" },
     update: {},
     create: {
-      email: "admin@jmpsolutions.fr",
+      email: "celianlebacle06@gmail.com",
       name: "Admin",
       password: adminPassword,
     },
