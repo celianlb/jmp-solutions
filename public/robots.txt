@@ -1,0 +1,12 @@
+# *
+User-agent: *
+Allow: /
+Disallow: /admin
+Disallow: /admin/*
+
+# Host
+Host: https://jmpsolutions.fr
+
+# Sitemaps
+Sitemap: https://jmpsolutions.fr/sitemap.xml
+
