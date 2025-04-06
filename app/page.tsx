@@ -83,7 +83,7 @@ export default function Home() {
                   size="lg"
                   className="border-white bg-transparent text-white hover:bg-white/10 hover:text-white"
                 >
-                  <Link href="/services/piscine">Nos services pisciniste</Link>
+                  <Link href="/services/piscine">Nos services piscinistes</Link>
                 </Button>
               </div>
             </div>
@@ -156,7 +156,7 @@ export default function Home() {
         <div className="container">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold tracking-tight mb-4">
-              Nos services
+              Nos services piscinistes
             </h2>
             <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
               Découvrez notre gamme complète de services pour l'entretien et
