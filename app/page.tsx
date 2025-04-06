@@ -83,7 +83,7 @@ export default function Home() {
                   size="lg"
                   className="border-white bg-transparent text-white hover:bg-white/10 hover:text-white"
                 >
-                  <Link href="/services/piscine">Nos services</Link>
+                  <Link href="/services/piscine">Nos services pisciniste</Link>
                 </Button>
               </div>
             </div>
