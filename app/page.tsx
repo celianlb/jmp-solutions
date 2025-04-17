@@ -1,12 +1,5 @@
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
 import { Award, CheckCircle, Clock, MapPin, Shield } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
@@ -55,7 +48,11 @@ export default function Home() {
   return (
     <div>
       {/* Hero Section */}
-      <section className="relative bg-gradient-to-r from-blue-600 to-cyan-500 py-20 text-white">
+      <section
+        className="relative bg-cover bg-center py-20 text-white"
+        style={{ backgroundImage: "url(/asset/piscine-main.jpg)" }}
+      >
+        <div className="absolute inset-0 bg-gradient-to-r from-blue-600 to-cyan-500 mix-blend-multiply" />
         <div className="container relative z-10">
           <div className="grid gap-8 md:grid-cols-2 items-center">
             <div>
@@ -87,18 +84,9 @@ export default function Home() {
                 </Button>
               </div>
             </div>
-            <div className="relative h-[300px] md:h-[400px] rounded-lg overflow-hidden">
-              <Image
-                src="/asset/piscine-main.jpg"
-                alt="Piscine JMP Solutions"
-                fill
-                className="object-cover"
-                priority
-              />
-            </div>
+            {/* L'image n'est plus affichée ici, elle est désormais en fond */}
           </div>
         </div>
-        <div className="absolute inset-0 bg-blue-900/20 mix-blend-multiply" />
       </section>
 
       {/* Features Section */}
@@ -152,39 +140,83 @@ export default function Home() {
       </section>
 
       {/* Services Section */}
-      <section className="py-16">
-        <div className="container">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold tracking-tight mb-4">
-              Nos services piscinistes
+      <section className="py-24 relative overflow-hidden">
+        <div className="absolute inset-0 bg-[url('/wave-pattern.svg')] opacity-5 bg-repeat" />
+        <div className="container relative">
+          <div className="mb-20 max-w-3xl mx-auto text-center">
+            <h2 className="text-5xl font-light mb-8 leading-tight">
+              L'art du
+              <span className="font-semibold italic mx-2 relative">
+                bien-être aquatique
+                <svg
+                  className="absolute -bottom-2 left-0 w-full"
+                  viewBox="0 0 200 8"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M0 4C50 4 50 1 100 1C150 1 150 7 200 7"
+                    stroke="currentColor"
+                    fill="none"
+                    strokeWidth="2"
+                    className="text-primary/40"
+                  />
+                </svg>
+              </span>
             </h2>
-            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-              Découvrez notre gamme complète de services pour l'entretien et
-              l'installation de vos équipements de bien-être.
+            <p className="text-lg text-muted-foreground leading-relaxed">
+              Laissez-nous transformer votre espace aquatique en un havre de
+              paix où chaque ondulation raconte une histoire de sérénité.
             </p>
           </div>
-          <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
-            {services.map((service) => (
-              <Card key={service.title} className="overflow-hidden">
-                <div className="relative h-48">
-                  <Image
-                    src={service.image || "/placeholder.svg"}
-                    alt={service.title}
-                    fill
-                    className="object-cover"
-                  />
+
+          <div className="relative">
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[200%] aspect-square rounded-full bg-primary/5 blur-3xl -z-10" />
+            <div className="grid grid-cols-1 gap-y-16 md:grid-cols-2 lg:grid-cols-2 gap-x-12 relative">
+              {services.map((service, index) => (
+                <div
+                  key={service.title}
+                  className={`group relative ${index % 2 === 0 ? "lg:translate-y-12" : ""}`}
+                >
+                  <div className="relative aspect-[4/3] mb-8 overflow-hidden rounded-2xl">
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent" />
+                    <Image
+                      src={service.image || "/placeholder.svg"}
+                      alt={service.title}
+                      fill
+                      className="object-cover transition-all duration-700 group-hover:scale-110"
+                    />
+                  </div>
+                  <div className="max-w-xl">
+                    <h3 className="text-2xl font-light mb-4 group-hover:text-primary transition-colors duration-300">
+                      {service.title}
+                    </h3>
+                    <p className="text-muted-foreground leading-relaxed mb-6">
+                      {service.description}
+                    </p>
+                    <Link
+                      href={service.href}
+                      className="inline-flex items-center text-sm font-medium text-primary hover:text-primary/80 transition-colors"
+                    >
+                      Explorer
+                      <svg
+                        className="ml-2 w-4 h-4 transition-transform duration-300 group-hover:translate-x-1"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M4 12H20M20 12L14 6M20 12L14 18"
+                          stroke="currentColor"
+                          strokeWidth="2"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                        />
+                      </svg>
+                    </Link>
+                  </div>
                 </div>
-                <CardHeader>
-                  <CardTitle>{service.title}</CardTitle>
-                  <CardDescription>{service.description}</CardDescription>
-                </CardHeader>
-                <CardContent>
-                  <Button asChild className="w-full">
-                    <Link href={service.href}>En savoir plus</Link>
-                  </Button>
-                </CardContent>
-              </Card>
-            ))}
+              ))}
+            </div>
           </div>
         </div>
       </section>
@@ -237,13 +269,8 @@ export default function Home() {
                 <Link href="/a-propos">En savoir plus sur nous</Link>
               </Button>
             </div>
-            <div className="relative h-[400px] rounded-lg overflow-hidden">
-              <Image
-                src="/asset/trust.jpg"
-                alt="Équipe JMP Solutions"
-                fill
-                className="object-cover"
-              />
+            <div className="relative m-auto h-[200px] w-[200px] md:h-[400px] md:w-[400px] rounded-lg overflow-hidden">
+              <Image src="/asset/trust.png" alt="Équipe JMP Solutions" fill />
             </div>
           </div>
         </div>

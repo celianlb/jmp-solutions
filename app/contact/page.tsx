@@ -170,28 +170,64 @@ export default function ContactPage() {
               </div>
             </div>
             <div>
-              <Card>
+              <Card className="w-full shadow-lg">
                 <CardHeader>
-                  <CardTitle>Formulaire de contact</CardTitle>
-                  <CardDescription>
-                    Remplissez le formulaire ci-dessous et nous vous répondrons
-                    sous 24h.
+                  <CardTitle className="text-2xl font-light">
+                    Formulaire de
+                    <span className="font-semibold italic mx-2 relative">
+                      contact
+                      <svg
+                        className="absolute -bottom-1 left-0 w-full"
+                        viewBox="0 0 200 8"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M0 4C50 4 50 1 100 1C150 1 150 7 200 7"
+                          stroke="currentColor"
+                          fill="none"
+                          strokeWidth="2"
+                          className="text-primary/40"
+                        />
+                      </svg>
+                    </span>
+                  </CardTitle>
+                  <CardDescription className="text-slate-600">
+                    Remplissez le formulaire ci-dessous et nous vous
+                    recontacterons dans les plus brefs délais.
                   </CardDescription>
                 </CardHeader>
                 <CardContent>
                   {isSubmitted ? (
-                    <div className="flex flex-col items-center justify-center py-8 text-center">
-                      <div className="rounded-full bg-green-100 p-3 text-green-600 mb-4">
-                        <CheckCircle className="h-8 w-8" />
-                      </div>
-                      <h3 className="text-xl font-bold mb-2">
-                        Message envoyé !
-                      </h3>
-                      <p className="text-muted-foreground">
-                        Merci pour votre message. Nous vous répondrons dans les
-                        plus brefs délais.
-                      </p>
-                    </div>
+                    <Card className="w-full text-center shadow-lg">
+                      <CardHeader>
+                        <div className="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-emerald-100">
+                          <CheckCircle className="h-6 w-6 text-emerald-600" />
+                        </div>
+                        <CardTitle className="text-2xl font-light">
+                          Message
+                          <span className="font-semibold italic mx-2 relative">
+                            envoyé
+                            <svg
+                              className="absolute -bottom-1 left-0 w-full"
+                              viewBox="0 0 200 8"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <path
+                                d="M0 4C50 4 50 1 100 1C150 1 150 7 200 7"
+                                stroke="currentColor"
+                                fill="none"
+                                strokeWidth="2"
+                                className="text-emerald-400"
+                              />
+                            </svg>
+                          </span>
+                          !
+                        </CardTitle>
+                        <CardDescription className="text-slate-600 mt-2">
+                          Nous vous recontacterons dans les plus brefs délais.
+                        </CardDescription>
+                      </CardHeader>
+                    </Card>
                   ) : (
                     <form onSubmit={handleSubmit} className="space-y-4">
                       <div className="grid grid-cols-2 gap-4">
@@ -294,7 +330,7 @@ export default function ContactPage() {
                       </div>
                       <Button
                         type="submit"
-                        className="w-full"
+                        className="w-full bg-primary/90 hover:bg-primary transition-colors duration-300"
                         disabled={isSubmitting}
                       >
                         {isSubmitting ? (

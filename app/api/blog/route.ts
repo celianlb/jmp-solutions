@@ -9,14 +9,12 @@ export async function GET() {
       orderBy: {
         createdAt: "desc",
       },
-      select: {
-        id: true,
-        title: true,
-        slug: true,
-        excerpt: true,
-        published: true,
-        createdAt: true,
-        updatedAt: true,
+      include: {
+        sections: {
+          orderBy: {
+            order: 'asc'
+          }
+        }
       },
     })
 
@@ -39,11 +37,22 @@ export async function POST(request: Request) {
 
   try {
     const json = await request.json()
-    const { title, slug, content, excerpt, published } = json
+    const { title, slug, excerpt, published, image, sections } = json
 
     // Validation
-    if (!title || !slug || !content) {
-      return NextResponse.json({ message: "Titre, slug et contenu sont requis" }, { status: 400 })
+    if (!title || !slug || !sections || sections.length === 0) {
+      return NextResponse.json({ message: "Titre, slug et au moins une section sont requis" }, { status: 400 })
+    }
+
+    // Validation des sections
+    if (sections.length > 4) {
+      return NextResponse.json({ message: "Maximum 4 sections autorisées" }, { status: 400 })
+    }
+
+    for (const section of sections) {
+      if (!section.title || !section.content) {
+        return NextResponse.json({ message: "Chaque section doit avoir un titre et un contenu" }, { status: 400 })
+      }
     }
 
     // Vérifier si le slug existe déjà
@@ -61,9 +70,20 @@ export async function POST(request: Request) {
       data: {
         title,
         slug,
-        content,
+        content: "", // Champ requis mais non utilisé
         excerpt: excerpt || "",
         published: published || false,
+        image: image || null,
+        sections: {
+          create: sections.map((section: { title: string; content: string }, index: number) => ({
+            title: section.title,
+            content: section.content,
+            order: index,
+          })),
+        },
+      },
+      include: {
+        sections: true,
       },
     })
 

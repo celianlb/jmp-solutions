@@ -26,9 +26,22 @@ model Post {
   slug      String   @unique
   excerpt   String?
   content   String
+  image     String?
+  sections  Section[]
   published Boolean  @default(false)
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
+}
+
+model Section {
+  id      String @id @default(cuid())
+  title   String
+  content String
+  order   Int
+  post    Post   @relation(fields: [postId], references: [id], onDelete: Cascade)
+  postId  String
+
+  @@index([postId])
 }
 
 model PasswordReset {

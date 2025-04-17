@@ -23,7 +23,7 @@ export default function Footer() {
                 alt="JMP Solutions Logo"
                 width={40}
                 height={40}
-                className="h-12 w-12 bg-primary"
+                className="h-12 w-12"
               />
               <span className="font-bold text-lg">JMP Solutions</span>
             </Link>

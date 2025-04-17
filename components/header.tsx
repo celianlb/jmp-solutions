@@ -46,7 +46,7 @@ export default function Header() {
               alt="JMP Solutions Logo"
               width={204}
               height={204}
-              className="h-12 w-12 bg-primary"
+              className="h-12 w-12"
             />
             <span className="hidden font-bold text-lg sm:inline-block">
               JMP Solutions
@@ -103,11 +103,11 @@ export default function Header() {
         </div>
         <div className="flex items-center gap-4">
           <a
-            href="tel:+33123456789"
-            className="hidden md:flex items-center gap-2 text-primary font-bold"
+            href="tel:+33611621826"
+            className="flex items-center gap-2 text-primary font-bold"
           >
             <Phone className="h-4 w-4" />
-            <span>01 23 45 67 89</span>
+            <span>06 11 62 18 26</span>
           </a>
           <Sheet open={isOpen} onOpenChange={setIsOpen}>
             <SheetTrigger asChild>
@@ -132,16 +132,16 @@ export default function Header() {
                     alt="JMP Solutions Logo"
                     width={204}
                     height={204}
-                    className="h-12 w-12 rounded-full bg-primary"
+                    className="h-12 w-12 rounded-full"
                   />
                   <span className="font-bold text-xl">JMP Solutions</span>
                 </Link>
                 <a
-                  href="tel:+33123456789"
+                  href="tel:+33611621826"
                   className="flex items-center gap-2 text-primary font-bold mb-6"
                 >
                   <Phone className="h-4 w-4" />
-                  <span>01 23 45 67 89</span>
+                  <span>06 11 62 18 26</span>
                 </a>
                 <nav className="flex flex-col gap-4">
                   <div className="border-b pb-4">

@@ -1,4 +1,3 @@
-import { Tag } from "@/components/tag";
 import { Button } from "@/components/ui/button";
 import {
   Card,
@@ -82,46 +81,77 @@ export default function PiscinePage() {
   return (
     <div>
       {/* Hero Section */}
-      <section className="relative bg-gradient-to-r from-blue-600 to-cyan-500 py-20 text-white">
-        <div className="container relative z-10 flex flex-col md:flex-row items-center">
-          <div className="max-w-3xl md:w-1/2">
-            <h1 className="text-4xl font-bold tracking-tight mb-4 md:text-5xl">
-              Services Pisciniste Professionnels
-            </h1>
-            <p className="text-lg mb-6 text-blue-50">
-              Entretien, réparation et installation pour tous types de piscines.
-              Notre équipe d'experts intervient dans toute la France sous 48h
-              maximum.
-            </p>
-            <Button
-              asChild
-              size="lg"
-              className="bg-white text-blue-600 hover:bg-blue-50"
-            >
-              <Link href="/contact">Demander un devis</Link>
-            </Button>
-          </div>
-          <div className="md:w-1/2 mt-8 md:mt-0 flex justify-center">
-            <Image
-              src="/piscine/piscine.jpg"
-              alt="Service Pisciniste"
-              width={500}
-              height={400}
-              className="object-cover rounded-lg"
-            />
+      <section className="relative overflow-hidden">
+        <div className="absolute inset-0 bg-[url('/wave-pattern.svg')] opacity-5 bg-repeat" />
+        <div
+          className="relative bg-cover bg-center py-32 text-white"
+          style={{ backgroundImage: "url(/piscine/piscine.jpg)" }}
+        >
+          <div className="absolute inset-0 bg-gradient-to-r from-blue-900/80 to-blue-900/40" />
+          <div className="container relative z-10">
+            <div className="max-w-3xl">
+              <h1 className="text-5xl font-light mb-6 leading-tight">
+                L'expertise
+                <span className="font-semibold italic mx-2 relative block mt-2">
+                  pisciniste à votre service
+                  <svg
+                    className="absolute -bottom-2 left-0 w-full"
+                    viewBox="0 0 200 8"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M0 4C50 4 50 1 100 1C150 1 150 7 200 7"
+                      stroke="currentColor"
+                      fill="none"
+                      strokeWidth="2"
+                      className="text-white/40"
+                    />
+                  </svg>
+                </span>
+              </h1>
+              <p className="text-xl mb-8 text-blue-50/90 leading-relaxed max-w-2xl">
+                Entretien, réparation et installation pour tous types de
+                piscines. Notre équipe d'experts intervient dans toute la France
+                sous 48h maximum.
+              </p>
+              <Button
+                asChild
+                size="lg"
+                className="bg-white/90 backdrop-blur-sm text-blue-600 hover:bg-white transition-colors duration-300"
+              >
+                <Link href="/contact">Demander un devis</Link>
+              </Button>
+            </div>
           </div>
         </div>
-        <div className="absolute inset-0 bg-blue-900/20 mix-blend-multiply" />
       </section>
 
       {/* Services Overview */}
-      <section className="py-16">
-        <div className="container">
-          <div className="text-start gap-4 flex flex-col justify-start mb-12">
-            <Tag picto="🏊‍♂️" title="Nos services piscine"></Tag>
-            <p className="text-base text-gray-500 font-light  max-w-2xl">
-              Découvrez notre gamme complète de services pour l'entretien, la
-              réparation et l'installation de votre piscine.
+      <section className="py-24 relative overflow-hidden">
+        <div className="container relative">
+          <div className="mb-16 max-w-3xl">
+            <h2 className="text-4xl font-light mt-6 mb-4 leading-tight">
+              Une expertise
+              <span className="font-semibold italic mx-2 relative">
+                complète et professionnelle
+                <svg
+                  className="absolute -bottom-2 left-0 w-full"
+                  viewBox="0 0 200 8"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M0 4C50 4 50 1 100 1C150 1 150 7 200 7"
+                    stroke="currentColor"
+                    fill="none"
+                    strokeWidth="2"
+                    className="text-primary/40"
+                  />
+                </svg>
+              </span>
+            </h2>
+            <p className="text-lg text-muted-foreground leading-relaxed max-w-2xl mt-4">
+              Notre équipe d'experts vous accompagne dans l'entretien et
+              l'optimisation de votre piscine pour une expérience unique.
             </p>
           </div>
           <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
@@ -143,36 +173,68 @@ export default function PiscinePage() {
       </section>
 
       {/* Installation Services */}
-      <section className="py-16 bg-blue-50">
-        <div className="container">
-          <div className="grid gap-8 md:grid-cols-2 items-center">
+      <section className="py-24 bg-slate-50/50 relative overflow-hidden">
+        <div className="absolute inset-0 bg-[url('/wave-pattern.svg')] opacity-5 bg-repeat" />
+        <div className="container relative">
+          <div className="grid gap-12 md:grid-cols-2 items-center">
             <div className="flex flex-col gap-8">
-              <Tag
-                picto="🛠️"
-                title="Services d'installation et de remplacement"
-              ></Tag>
-              <p className="text-base text-gray-500 font-light">
-                Nous proposons une gamme complète de services d'installation et
-                de remplacement pour tous les équipements de votre piscine.
-              </p>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div>
+                <h2 className="text-4xl font-light mt-6 mb-4 leading-tight">
+                  Installation et
+                  <span className="font-semibold italic mx-2 relative">
+                    maintenance dédiée
+                    <svg
+                      className="absolute -bottom-2 left-0 w-full"
+                      viewBox="0 0 200 8"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M0 4C50 4 50 1 100 1C150 1 150 7 200 7"
+                        stroke="currentColor"
+                        fill="none"
+                        strokeWidth="2"
+                        className="text-primary/40"
+                      />
+                    </svg>
+                  </span>
+                </h2>
+                <p className="text-lg text-muted-foreground leading-relaxed mt-4 mb-8">
+                  Nos services d'installation et de remplacement assurent la
+                  longévité et la performance de votre piscine. Nous proposons
+                  des interventions ponctuelles ou régulières en fonction de vos
+                  besoins.
+                </p>
+              </div>
+
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 {installationServices.map((service, index) => (
-                  <div key={index} className="flex items-start gap-3">
-                    <CheckCircle className="h-5 w-5 text-blue-600 flex-shrink-0 mt-0.5" />
-                    <span>{service}</span>
+                  <div
+                    key={index}
+                    className="flex items-start gap-3 group transition-transform duration-300 hover:translate-x-1"
+                  >
+                    <CheckCircle className="h-5 w-5 text-primary/70 flex-shrink-0 mt-0.5 group-hover:text-primary transition-colors duration-300" />
+                    <span className="text-slate-600">{service}</span>
                   </div>
                 ))}
               </div>
-              <Button asChild className="w-fit">
+
+              <Button
+                asChild
+                className="w-fit bg-primary/90 hover:bg-primary transition-colors duration-300 mt-4"
+              >
                 <Link href="/contact">Demander un devis</Link>
               </Button>
             </div>
-            <div className="relative h-[400px] rounded-lg overflow-hidden">
+
+            <div className="relative aspect-[4/3] rounded-2xl overflow-hidden shadow-lg">
+              <div className="absolute inset-0 bg-gradient-to-t from-slate-900/30 via-transparent to-transparent" />
               <Image
                 src="/piscine/piscine-cleaning.jpg"
-                alt="Installation piscine"
+                alt="Installation Piscine"
                 fill
-                className="object-cover"
+                sizes="(max-width: 768px) 100vw, 50vw"
+                priority
+                className="object-cover transition-transform duration-700 hover:scale-105"
               />
             </div>
           </div>
@@ -180,121 +242,157 @@ export default function PiscinePage() {
       </section>
 
       {/* Maintenance Contracts */}
-      <section className="py-16">
-        <div className="container">
-          <div className="text-center mb-12">
-            <Tag
-              picto="📝"
-              title="Contrats d'entretien annuels"
-              className="mx-auto mb-4"
-            />
-            <p className="text-base text-gray-500 font-light max-w-2xl mx-auto">
-              Optez pour un contrat d'entretien annuel pour garder votre piscine
-              en parfait état toute l'année.
+      <section className="py-24 bg-slate-50/50 relative overflow-hidden">
+        <div className="absolute inset-0 bg-[url('/wave-pattern.svg')] opacity-5 bg-repeat" />
+        <div className="container relative">
+          <div className="mb-16 max-w-3xl mx-auto text-center">
+            <h2 className="text-4xl font-light mb-4 leading-tight">
+              Un entretien
+              <span className="font-semibold italic mx-2 relative">
+                minutieux et régulier
+                <svg
+                  className="absolute -bottom-2 left-0 w-full"
+                  viewBox="0 0 200 8"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M0 4C50 4 50 1 100 1C150 1 150 7 200 7"
+                    stroke="currentColor"
+                    fill="none"
+                    strokeWidth="2"
+                    className="text-primary/40"
+                  />
+                </svg>
+              </span>
+            </h2>
+            <p className="text-lg text-muted-foreground leading-relaxed mt-4">
+              Optez pour un contrat d'entretien annuel et profitez d'une piscine
+              en parfait état tout au long de l'année.
             </p>
           </div>
-          <div className="grid gap-8 md:grid-cols-3">
-            <Card className="text-center">
+          <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+            <Card className="text-center bg-white/80 backdrop-blur-sm hover:shadow-lg transition-all duration-300">
               <CardHeader>
-                <CardTitle>Formule Essentielle</CardTitle>
-                <CardDescription>
-                  Pour les piscines à usage occasionnel
+                <CardTitle className="text-2xl font-light">
+                  Formule Essentielle
+                </CardTitle>
+                <CardDescription className="text-slate-600">
+                  Pour un usage occasionnel
                 </CardDescription>
               </CardHeader>
               <CardContent>
-                <ul className="space-y-2 text-left mb-6">
+                <ul className="space-y-4 text-left mb-8">
                   <li className="flex items-start gap-3">
-                    <CheckCircle className="h-5 w-5 text-blue-600 flex-shrink-0 mt-0.5" />
-                    <span>2 visites par an</span>
+                    <CheckCircle className="h-5 w-5 text-primary/70 flex-shrink-0 mt-0.5" />
+                    <span className="text-slate-700">2 visites par an</span>
                   </li>
                   <li className="flex items-start gap-3">
-                    <CheckCircle className="h-5 w-5 text-blue-600 flex-shrink-0 mt-0.5" />
-                    <span>Nettoyage complet</span>
+                    <CheckCircle className="h-5 w-5 text-primary/70 flex-shrink-0 mt-0.5" />
+                    <span className="text-slate-700">Nettoyage complet</span>
                   </li>
                   <li className="flex items-start gap-3">
-                    <CheckCircle className="h-5 w-5 text-blue-600 flex-shrink-0 mt-0.5" />
-                    <span>Analyse de l'eau</span>
+                    <CheckCircle className="h-5 w-5 text-primary/70 flex-shrink-0 mt-0.5" />
+                    <span className="text-slate-700">
+                      Inspection des systèmes
+                    </span>
                   </li>
                   <li className="flex items-start gap-3">
-                    <CheckCircle className="h-5 w-5 text-blue-600 flex-shrink-0 mt-0.5" />
-                    <span>Hivernage et remise en service</span>
+                    <CheckCircle className="h-5 w-5 text-primary/70 flex-shrink-0 mt-0.5" />
+                    <span className="text-slate-700">
+                      Remplacement des pièces usées
+                    </span>
                   </li>
                 </ul>
-                <Button asChild className="w-full">
+                <Button
+                  asChild
+                  className="w-full bg-primary/90 hover:bg-primary transition-colors duration-300"
+                >
                   <Link href="/contact">Demander un devis</Link>
                 </Button>
               </CardContent>
             </Card>
-            <Card className="text-center border-blue-600 shadow-lg">
+
+            <Card className="text-center bg-white/80 backdrop-blur-sm hover:shadow-lg transition-all duration-300 border-primary/20">
               <CardHeader>
-                <CardTitle>Formule Confort</CardTitle>
-                <CardDescription>
-                  Pour les piscines à usage régulier
+                <CardTitle className="text-2xl font-light">
+                  Formule Confort
+                </CardTitle>
+                <CardDescription className="text-slate-600">
+                  Pour un usage régulier
                 </CardDescription>
               </CardHeader>
               <CardContent>
-                <ul className="space-y-2 text-left mb-6">
+                <ul className="space-y-4 text-left mb-8">
                   <li className="flex items-start gap-3">
-                    <CheckCircle className="h-5 w-5 text-blue-600 flex-shrink-0 mt-0.5" />
-                    <span>4 visites par an</span>
+                    <CheckCircle className="h-5 w-5 text-primary/70 flex-shrink-0 mt-0.5" />
+                    <span className="text-slate-700">4 visites par an</span>
                   </li>
                   <li className="flex items-start gap-3">
-                    <CheckCircle className="h-5 w-5 text-blue-600 flex-shrink-0 mt-0.5" />
-                    <span>Nettoyage complet</span>
+                    <CheckCircle className="h-5 w-5 text-primary/70 flex-shrink-0 mt-0.5" />
+                    <span className="text-slate-700">Nettoyage complet</span>
                   </li>
                   <li className="flex items-start gap-3">
-                    <CheckCircle className="h-5 w-5 text-blue-600 flex-shrink-0 mt-0.5" />
-                    <span>Analyse et traitement de l'eau</span>
+                    <CheckCircle className="h-5 w-5 text-primary/70 flex-shrink-0 mt-0.5" />
+                    <span className="text-slate-700">
+                      Inspection en profondeur
+                    </span>
                   </li>
                   <li className="flex items-start gap-3">
-                    <CheckCircle className="h-5 w-5 text-blue-600 flex-shrink-0 mt-0.5" />
-                    <span>Contrôle des équipements</span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <CheckCircle className="h-5 w-5 text-blue-600 flex-shrink-0 mt-0.5" />
-                    <span>Hivernage et remise en service</span>
+                    <CheckCircle className="h-5 w-5 text-primary/70 flex-shrink-0 mt-0.5" />
+                    <span className="text-slate-700">Détartrage complet</span>
                   </li>
                 </ul>
-                <Button asChild className="w-full">
+                <Button
+                  asChild
+                  className="w-full bg-primary/90 hover:bg-primary transition-colors duration-300"
+                >
                   <Link href="/contact">Demander un devis</Link>
                 </Button>
               </CardContent>
             </Card>
-            <Card className="text-center">
+
+            <Card className="text-center bg-white/80 backdrop-blur-sm hover:shadow-lg transition-all duration-300">
               <CardHeader>
-                <CardTitle>Formule Premium</CardTitle>
-                <CardDescription>
-                  Pour les piscines à usage intensif
+                <CardTitle className="text-2xl font-light">
+                  Formule Premium
+                </CardTitle>
+                <CardDescription className="text-slate-600">
+                  Pour un usage intensif
                 </CardDescription>
               </CardHeader>
               <CardContent>
-                <ul className="space-y-2 text-left mb-6">
+                <ul className="space-y-4 text-left mb-8">
                   <li className="flex items-start gap-3">
-                    <CheckCircle className="h-5 w-5 text-blue-600 flex-shrink-0 mt-0.5" />
-                    <span>6 visites par an</span>
+                    <CheckCircle className="h-5 w-5 text-primary/70 flex-shrink-0 mt-0.5" />
+                    <span className="text-slate-700">6 visites par an</span>
                   </li>
                   <li className="flex items-start gap-3">
-                    <CheckCircle className="h-5 w-5 text-blue-600 flex-shrink-0 mt-0.5" />
-                    <span>Nettoyage complet</span>
+                    <CheckCircle className="h-5 w-5 text-primary/70 flex-shrink-0 mt-0.5" />
+                    <span className="text-slate-700">Nettoyage complet</span>
                   </li>
                   <li className="flex items-start gap-3">
-                    <CheckCircle className="h-5 w-5 text-blue-600 flex-shrink-0 mt-0.5" />
-                    <span>Analyse et traitement de l'eau</span>
+                    <CheckCircle className="h-5 w-5 text-primary/70 flex-shrink-0 mt-0.5" />
+                    <span className="text-slate-700">
+                      Inspection approfondie
+                    </span>
                   </li>
                   <li className="flex items-start gap-3">
-                    <CheckCircle className="h-5 w-5 text-blue-600 flex-shrink-0 mt-0.5" />
-                    <span>Contrôle et entretien des équipements</span>
+                    <CheckCircle className="h-5 w-5 text-primary/70 flex-shrink-0 mt-0.5" />
+                    <span className="text-slate-700">
+                      Contrôle complet des équipements
+                    </span>
                   </li>
                   <li className="flex items-start gap-3">
-                    <CheckCircle className="h-5 w-5 text-blue-600 flex-shrink-0 mt-0.5" />
-                    <span>Hivernage et remise en service</span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <CheckCircle className="h-5 w-5 text-blue-600 flex-shrink-0 mt-0.5" />
-                    <span>Assistance prioritaire</span>
+                    <CheckCircle className="h-5 w-5 text-primary/70 flex-shrink-0 mt-0.5" />
+                    <span className="text-slate-700">
+                      Assistance prioritaire
+                    </span>
                   </li>
                 </ul>
-                <Button asChild className="w-full">
+                <Button
+                  asChild
+                  className="w-full bg-primary/90 hover:bg-primary transition-colors duration-300"
+                >
                   <Link href="/contact">Demander un devis</Link>
                 </Button>
               </CardContent>
@@ -304,19 +402,36 @@ export default function PiscinePage() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-16 bg-gradient-to-r from-blue-600 to-cyan-500 text-white">
-        <div className="container text-center">
-          <h2 className="text-3xl font-bold tracking-tight mb-4">
-            Besoin d'un service pour votre piscine ?
+      <section className="py-24 bg-gradient-to-r from-blue-900 to-blue-800 text-white relative overflow-hidden">
+        <div className="absolute inset-0 bg-[url('/wave-pattern.svg')] opacity-5 bg-repeat" />
+        <div className="container relative text-center">
+          <h2 className="text-4xl font-light mb-6 leading-tight">
+            Sublimez votre
+            <span className="font-semibold italic mx-2 relative">
+              espace aquatique
+              <svg
+                className="absolute -bottom-2 left-0 w-full"
+                viewBox="0 0 200 8"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M0 4C50 4 50 1 100 1C150 1 150 7 200 7"
+                  stroke="currentColor"
+                  fill="none"
+                  strokeWidth="2"
+                  className="text-white/40"
+                />
+              </svg>
+            </span>
           </h2>
-          <p className="text-xl text-blue-50 max-w-2xl mx-auto mb-8">
-            Contactez-nous dès aujourd'hui pour un devis gratuit et sans
-            engagement.
+          <p className="text-xl text-blue-100/90 max-w-2xl mx-auto mb-8 leading-relaxed">
+            Contactez-nous dès aujourd'hui pour un devis personnalisé et
+            découvrez comment nous pouvons enrichir votre expérience piscine.
           </p>
           <Button
             asChild
             size="lg"
-            className="bg-white text-blue-600 hover:bg-blue-50"
+            className="bg-white/90 backdrop-blur-sm text-blue-800 hover:bg-white transition-colors duration-300"
           >
             <Link href="/contact">Nous contacter</Link>
           </Button>
