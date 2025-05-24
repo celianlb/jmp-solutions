@@ -2,6 +2,7 @@
 
 import type React from "react";
 
+import { sendEmail } from "@/components/EmailSender";
 import { Button } from "@/components/ui/button";
 import {
   Card,
@@ -51,9 +52,13 @@ export default function ContactPage() {
     e.preventDefault();
     setIsSubmitting(true);
 
-    // Simuler l'envoi du formulaire
-    setTimeout(() => {
-      setIsSubmitting(false);
+    try {
+      const result = await sendEmail(formData);
+
+      if (!result.success) {
+        throw new Error("Erreur lors de l'envoi du message");
+      }
+
       setIsSubmitted(true);
 
       // Réinitialiser le formulaire après 5 secondes
@@ -69,7 +74,14 @@ export default function ContactPage() {
           message: "",
         });
       }, 5000);
-    }, 1500);
+    } catch (error) {
+      console.error("Erreur lors de l'envoi de l'email:", error);
+      alert(
+        "Une erreur est survenue lors de l'envoi du message. Veuillez réessayer."
+      );
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
