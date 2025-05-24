@@ -112,7 +112,7 @@ export default function ContactPage() {
                       href="tel:+33123456789"
                       className="text-blue-600 font-medium"
                     >
-                      01 23 45 67 89
+                      06 11 62 18 26
                     </a>
                   </div>
                 </div>
@@ -126,10 +126,10 @@ export default function ContactPage() {
                       Réponse sous 24h
                     </p>
                     <a
-                      href="mailto:contact@jmpsolutions.fr"
+                      href="mailto:contact.jmpsolution@gmail.com"
                       className="text-blue-600 font-medium"
                     >
-                      contact@jmpsolutions.fr
+                      contact.jmpsolution@gmail.com
                     </a>
                   </div>
                 </div>

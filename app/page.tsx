@@ -177,43 +177,45 @@ export default function Home() {
                   key={service.title}
                   className={`group relative ${index % 2 === 0 ? "lg:translate-y-12" : ""}`}
                 >
-                  <div className="relative aspect-[4/3] mb-8 overflow-hidden rounded-2xl">
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent" />
-                    <Image
-                      src={service.image || "/placeholder.svg"}
-                      alt={service.title}
-                      fill
-                      className="object-cover transition-all duration-700 group-hover:scale-110"
-                    />
-                  </div>
-                  <div className="max-w-xl">
-                    <h3 className="text-2xl font-light mb-4 group-hover:text-primary transition-colors duration-300">
-                      {service.title}
-                    </h3>
-                    <p className="text-muted-foreground leading-relaxed mb-6">
-                      {service.description}
-                    </p>
-                    <Link
-                      href={service.href}
-                      className="inline-flex items-center text-sm font-medium text-primary hover:text-primary/80 transition-colors"
+                  <Link href={service.href} className="block">
+                    <div className="relative aspect-[4/3] mb-8 overflow-hidden rounded-2xl">
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent" />
+                      <Image
+                        src={service.image || "/placeholder.svg"}
+                        alt={service.title}
+                        fill
+                        className="object-cover transition-all duration-700 group-hover:scale-110"
+                      />
+                    </div>
+                    <div className="max-w-xl">
+                      <h3 className="text-2xl font-light mb-4 group-hover:text-primary transition-colors duration-300">
+                        {service.title}
+                      </h3>
+                      <p className="text-muted-foreground leading-relaxed mb-6">
+                        {service.description}
+                      </p>
+                    </div>
+                  </Link>
+                  <Link
+                    href={service.href}
+                    className="inline-flex items-center text-sm font-medium text-primary hover:text-primary/80 transition-colors"
+                  >
+                    Explorer
+                    <svg
+                      className="ml-2 w-4 h-4 transition-transform duration-300 group-hover:translate-x-1"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
                     >
-                      Explorer
-                      <svg
-                        className="ml-2 w-4 h-4 transition-transform duration-300 group-hover:translate-x-1"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path
-                          d="M4 12H20M20 12L14 6M20 12L14 18"
-                          stroke="currentColor"
-                          strokeWidth="2"
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                        />
-                      </svg>
-                    </Link>
-                  </div>
+                      <path
+                        d="M4 12H20M20 12L14 6M20 12L14 18"
+                        stroke="currentColor"
+                        strokeWidth="2"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      />
+                    </svg>
+                  </Link>
                 </div>
               ))}
             </div>

@@ -37,14 +37,14 @@ export default function Footer() {
                 className="flex items-center gap-2 text-sm text-muted-foreground hover:text-primary"
               >
                 <Phone className="h-4 w-4" />
-                <span>01 23 45 67 89</span>
+                <span>06 11 62 18 26</span>
               </a>
               <a
-                href="mailto:contact@jmpsolutions.fr"
+                href="mailto:contact.jmpsolution@gmail.com"
                 className="flex items-center gap-2 text-sm text-muted-foreground hover:text-primary"
               >
                 <Mail className="h-4 w-4" />
-                <span>contact@jmpsolutions.fr</span>
+                <span>contact.jmpsolution@gmail.com</span>
               </a>
               <div className="flex items-center gap-2 text-sm text-muted-foreground">
                 <MapPin className="h-4 w-4" />
