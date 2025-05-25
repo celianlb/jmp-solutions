@@ -26,7 +26,7 @@ export async function sendEmail(formData: {
 
     const data = await resend.emails.send({
       from: "JMP Solutions <onboarding@resend.dev>", // Utilisation de l'adresse de test Resend
-      to: "celianlebacle06@gmail.com",
+      to: "contact.jmpsolution@gmail.com",
       subject: `Nouvelle demande de contact - ${firstName} ${lastName}`,
       html: `
         <h2>Nouvelle demande de contact</h2>
