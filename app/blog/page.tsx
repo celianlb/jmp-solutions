@@ -12,6 +12,8 @@ import { formatDate } from "@/lib/utils";
 import Image from "next/image";
 import Link from "next/link";
 
+export const revalidate = 0; // Force la régénération à chaque requête
+
 export default async function BlogPage() {
   const posts = await prisma.post.findMany({
     where: {
