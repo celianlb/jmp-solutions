@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { prisma } from "@/lib/prisma";
 import { formatDate } from "@/lib/utils";
+import { marked } from "marked";
 
 type Section = {
   id: string;
@@ -52,6 +53,20 @@ export async function generateMetadata({ params }: BlogPostPageProps) {
   };
 }
 
+function preprocessMarkdown(text: string): string {
+  return (
+    text
+      // 1. Supprime tous les espaces/tabs en début de ligne avant un tiret
+      .replace(/^[ \t]*-+/gm, "-")
+      // 2. Ajoute un espace après le tiret si manquant
+      .replace(/(^|\n)-([^ \n])/g, "$1- $2")
+      // 3. Ajoute une ligne vide avant chaque bloc de liste (sauf si déjà présente)
+      .replace(/([^\n])\n(- )/g, "$1\n\n$2")
+      // 4. Limite les multiples retours à la ligne à 2
+      .replace(/\n{3,}/g, "\n\n")
+  );
+}
+
 export default async function BlogPostPage({ params }: BlogPostPageProps) {
   const post = await prisma.post.findUnique({
     where: {
@@ -61,10 +76,10 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
     include: {
       sections: {
         orderBy: {
-          order: 'asc'
-        }
-      }
-    }
+          order: "asc",
+        },
+      },
+    },
   });
 
   if (!post) {
@@ -100,7 +115,14 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
         {post.sections?.map((section: Section, index: number) => (
           <div key={index} className="mb-8">
             <h2>{section.title}</h2>
-            <div dangerouslySetInnerHTML={{ __html: section.content }} />
+            <div
+              className="prose prose-blue"
+              dangerouslySetInnerHTML={{
+                __html: marked(preprocessMarkdown(section.content), {
+                  gfm: true,
+                }),
+              }}
+            />
           </div>
         ))}
       </article>
